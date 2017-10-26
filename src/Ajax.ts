@@ -5,13 +5,11 @@ export class Ajax {
     send(data?: {}) {
         return new Promise(
             ((resolve, reject) => {
-                const xhr = new XMLHttpRequest();;
+                const xhr = new XMLHttpRequest();
 
-                xhr.onreadystatechange = function(respnose) {
-                    if (xhr.readyState > 3 && xhr.status === 200) {
-                        resolve(xhr);
-                    }
-                };
+                xhr.addEventListener('load', e => resolve(xhr));
+                xhr.addEventListener('error', e => reject('An error occurred.'));
+                xhr.addEventListener('abort', e => reject('The request has been cancelled by the user.'));
 
                 xhr.open(this.method, this.url);
                 xhr.setRequestHeader('Content-Type', 'application/json');
