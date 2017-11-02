@@ -7,6 +7,10 @@ export class Ajax {
         Ajax.defaultHeaders = headers;
     }
 
+    public static getDefaultHeaders(): Headers {
+        return Ajax.defaultHeaders;
+    }
+
     private headers: Headers;
 
     constructor(private method: string = 'GET', private url: string) {
@@ -34,8 +38,6 @@ export class Ajax {
     }
 
     send(data?: {}) {
-        const headers = {};
-
         return new Promise(
             ((resolve, reject) => {
                 const xhr = new XMLHttpRequest();
