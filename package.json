@@ -1,11 +1,9 @@
 {
   "name": "ii-ajax",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A Ajax utility.",
   "main": "index.js",
-  "dependencies": {
-    "@types/es6-promise": "0.0.33"
-  },
+  "dependencies": {},
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
