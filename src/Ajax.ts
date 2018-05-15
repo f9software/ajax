@@ -17,8 +17,8 @@ export class Ajax {
         this.headers = this.mergeHeaders({}, Ajax.defaultHeaders);
     }
 
-    private mergeHeaders(headers, defaultHeaders): Headers {
-        const newHeaders = {};
+    private mergeHeaders(headers: Headers, defaultHeaders: Headers): Headers {
+        const newHeaders: Headers = {};
 
         Object.keys(defaultHeaders)
             .forEach(header => newHeaders[header] = defaultHeaders[header]);
@@ -33,13 +33,13 @@ export class Ajax {
         this.headers = this.mergeHeaders(headers, Ajax.defaultHeaders);
     }
 
-    public getHeaders() {
+    public getHeaders(): Headers {
         return this.headers;
     }
 
-    send(data?: {}) {
+    send(data?: {}): Promise<XMLHttpRequest> {
         return new Promise(
-            ((resolve, reject) => {
+            ((resolve: (xhr: XMLHttpRequest) => any, reject: (error: string) => any) => {
                 const xhr = new XMLHttpRequest();
 
                 xhr.addEventListener('load', e => resolve(xhr));
